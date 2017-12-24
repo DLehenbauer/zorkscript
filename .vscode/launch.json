@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Mocha Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--no-timeouts",
+        "--colors",
+        "${workspaceFolder}/build",
+        "--require",
+        "source-map-support/register",
+        "--saveOnFailurePath",
+        "${workspaceFolder}/fail.z3"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "preLaunchTask": "build"
+    }
+  ]
+}

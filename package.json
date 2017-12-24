@@ -1,0 +1,51 @@
+{
+  "name": "zorkscript",
+  "version": "0.0.2",
+  "description": "The unofficial JavaScript (subset) to Infocom Z-machine compiler",
+  "main": "lib/index",
+  "types": "lib/index",
+  "bin": {
+    "zsc": "./lib/bin/zsc.js"
+  },
+  "scripts": {
+    "clean": "rimraf build && mkdir build && rimraf lib && mkdir lib && mkdir \"lib/compiler\"",
+    "build:parser": "pegjs -o lib/compiler/grammar.js src/compiler/grammar.pegjs",
+    "build:test": "tsc -p test/",
+    "build:src": "tsc -p src/",
+    "build": "npm run build:parser && npm run build:src && npm run build:test",
+    "lint": "tslint -c ./tslint.json './**/*.ts*'",
+    "lint:fix": "tslint -c ./tslint.json './**/*.ts*' --fix",
+    "prepublishOnly": "npm run clean && npm run build && npm run test && npm run lint",
+    "test": "mocha build --require source-map-support/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLehenbauer/zorkscript.git"
+  },
+  "keywords": [],
+  "author": "DLehenbauer@users.noreply.github.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DLehenbauer/zorkscript/issues"
+  },
+  "homepage": "https://github.com/DLehenbauer/zorkscript#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/minimist": "^1.2.0",
+    "@types/mocha": "^2.2.45",
+    "@types/node": "^8.5.2",
+    "@types/pegjs": "^0.10.0",
+    "chai": "^4.1.2",
+    "jszm": "git+https://github.com/DLehenbauer/jszm.git",
+    "mocha": "^4.0.1",
+    "pegjs": "^0.10.0",
+    "rimraf": "^2.6.2",
+    "source-map-support": "^0.5.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "lobyte": "0.0.3",
+    "minimist": "^1.2.0"
+  }
+}

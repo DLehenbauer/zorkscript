@@ -1,0 +1,11 @@
+{
+    "files.exclude": {
+        "node_modules": true,
+        "build": true,
+        "lib": true,
+        "package-lock.json": true,
+        "fail.z3": true
+    },
+    "tslint.configFile": "tslint-editing.json",
+    "rewrap.wrappingColumn": 100
+}

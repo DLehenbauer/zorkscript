@@ -1,0 +1,11 @@
+{
+    "defaultSeverity": "error",
+    "extends": "./tslint.json",
+    "jsRules": {},
+    "rules": {
+        "eofline": false,
+        "no-empty": false,
+        "no-trailing-whitespace": false
+    },
+    "rulesDirectory": []
+}
